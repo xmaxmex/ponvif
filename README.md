@@ -4,7 +4,7 @@ Fork of https://github.com/ltoscano/ponvif with WS-Discovery implementation plus
 
 and
 
-Fork of https://github.com/KuroNeko-san/ponvif with new functions, like getSnapShowAndSave and Intelbras onvif cameras tests.
+Fork of https://github.com/KuroNeko-san/ponvif with new functions, like getSnapShotAndSave and Intelbras onvif cameras tests.
 
 
 ### The new Lib is ponvif.php em Lib directory
