@@ -7,6 +7,9 @@ and
 Fork of https://github.com/KuroNeko-san/ponvif with new functions, like getSnapShowAndSave and Intelbras onvif cameras tests.
 
 
+### The new Lib is ponvif.php em Lib directory
+
+
 ## ONVIF PHP implementation
 
 This software module can control network video devices with ONVIF protocol (HTTP SOAP requests) and scan network for supported devices via UDP multicast.
