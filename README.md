@@ -2,18 +2,82 @@
 
 Fork of https://github.com/ltoscano/ponvif with WS-Discovery implementation plus some code fixes.
 
-ONVIF PHP implementation
+and
+
+Fork of https://github.com/KuroNeko-san/ponvif with new functions, like getSnapShowAndSave and Intelbras onvif cameras tests.
+
+
+## ONVIF PHP implementation
 
 This software module can control network video devices with ONVIF protocol (HTTP SOAP requests) and scan network for supported devices via UDP multicast.
 
+## Tip
+
+In some vendors and camera implementation, may require a user and password specific for Onvif resources (Intelbras vendor cameras need that!)
+
 ## Usage
+
+### Initialize Lib
+
+```php
+<?php
+require 'ponvif.php';
+
+$onvif->setUsername('onvif');
+$onvif->setPassword('onvif123');
+$onvif->setIPAddress('192.168.5.130');
+
+$onvif->initialize();
+
+$sources = $onvif->getSources();
+
+print_r($sources);
+?>
+```
+
+### New Functions
+
+```php
+<?php
+require 'ponvif.php';
+
+$onvif->setUsername('onvif');
+$onvif->setPassword('onvif123');
+$onvif->setIPAddress('192.168.5.130');
+
+$onvif->initialize();
+
+echo "URI RTSP Extra: ".$onvif->getUriRTSP_Extra_Intelbras()."<br>";
+
+//$sources = $onvif->getSources();
+$profiles = $onvif->media_GetProfiles();
+
+//print_r($profiles);
+
+// stream principal
+$token = $profiles[0]['@attributes']['token'];
+
+//echo "token: ".$token;
+
+$rtsp_uri = $onvif->media_GetStreamUri($token);
+
+echo "uri: ".$rtsp_uri;
+
+$teste = $onvif->getSnapShotAndSave("onvif.jpg");
+
+echo '<img src="onvif.jpg">';
+
+//var_dump($sources);
+?>
+```
+
 
 ### Discovery
 
 ```php
 <?php
 
-require 'class.ponvif.php';
+require 'ponvif.php';
 
 $onvif = new Ponvif();
 $result = $onvif->discover();
